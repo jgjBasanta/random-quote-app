@@ -1,20 +1,20 @@
 import "./App.css";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 function App() {
   const [quotes, setQuotes] = useState([]);
   const [quoteText, setQuoteText] = useState("");
   const [quoteAuthor, setQuoteAuthor] = useState("");
 
-  const getQuotes = async () => {
+  const getQuotes = useCallback(async () => {
     try {
       const response = await axios.get("https://type.fit/api/quotes");
       setQuotes(response.data);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   const getQuote = () => {
     if (quotes.length > 0) {
@@ -40,7 +40,9 @@ function App() {
       <button id="new-quote" onClick={getQuote} type="button">
         New Quote
       </button>
-      <a id="tweet-quote">Tweet</a>
+      <a id="tweet-quote" href="https://twitter.com/intent/tweet">
+        Tweet
+      </a>
     </div>
   );
 }
