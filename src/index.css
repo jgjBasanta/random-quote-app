@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: rgb(58, 54, 54);
+  min-height: 100vh;
 }
 
 code {
@@ -14,12 +15,69 @@ code {
 }
 
 p, a {
-  color: aqua;
+  color: white;
 }
-
-#quote-box {
+#background {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+}
+
+#quote-box {
+  background-color: black;
+  height: 50%;
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1.5fr 0.6fr;
+  grid-template-areas: 
+    'quoteText quoteText'
+    'blank quoteAuthor'
+    'tweet newQuote';
+}
+
+#text {
+  grid-area: quoteText;
+  background-color: blue;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#author {
+  grid-area: quoteAuthor;
+  background-color: red;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#new-quote {
+  grid-area: newQuote;
+  background-color: white;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: 120px;
+  margin-right: 20px;
+  border-radius: 10px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tweet-quote {
+  grid-area: tweet;
+  background-color: green;
+  color: black;
+
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
